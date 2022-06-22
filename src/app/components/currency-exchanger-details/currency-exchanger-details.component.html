@@ -1,0 +1,18 @@
+<section>
+  <app-currency-exchanger-filter [options]="params" (event)="convert($event)">
+  </app-currency-exchanger-filter>
+</section>
+
+<div class="card">
+  <app-converted-result [params]="params" [data]="convertedData">
+    <button class="btn btn-default">
+        <a routerLink="/converter/home">
+          Back to Home
+        </a>
+    </button>
+  </app-converted-result>
+</div>
+
+<div class="card">
+  <app-historical-details [data]="historicalData" [params]="params"></app-historical-details>
+</div>

@@ -1,0 +1,17 @@
+<section>
+  <app-currency-exchanger-filter (event)="convert($event)"></app-currency-exchanger-filter>
+</section>
+
+
+<div class="card" *ngIf="showResults">
+  <app-converted-result [data]="convertedData">
+    <button class="btn btn-default" (click)="navigate()">More Details</button>
+  </app-converted-result>
+</div>
+
+<div class="grid">
+  <ng-container *ngFor="let data of latestCurrencyData">
+    <app-currency-exchanger-widgets [data]="data">
+    </app-currency-exchanger-widgets>
+  </ng-container>
+</div>

@@ -1,0 +1,37 @@
+<div class="currency-filter">
+  <form (ngSubmit)="emit()" [formGroup]="filterForm">
+    <div class="row">
+      <div class="form-field">
+        <label for="amount">Amount</label>
+        <input type="text" formControlName="amount" (keyup)="validateAmount($event)" />
+        <p *ngIf="amount?.errors">
+          Please Enter Valid Amount
+        </p>
+      </div>
+
+      <div class="form-field">
+        <label for="from">From</label>
+        <select formControlName="from" id="from">
+          <option *ngFor="let symbol of symbols" [value]="symbol">
+            {{ symbol }}
+          </option>
+        </select>
+      </div>
+
+      <button type="button" class="btn btn-secondary" (click)="swapValues()">
+        <img src="./../../../assets/svg/swap.svg" alt="swap">
+      </button>
+
+      <div class="form-field">
+        <label for="to">To</label>
+        <select formControlName="to" id="to">
+          <option *ngFor="let symbol of symbols" [value]="symbol">
+            {{ symbol }}
+          </option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!filterForm.valid">convert</button>
+    </div>
+  </form>
+</div>

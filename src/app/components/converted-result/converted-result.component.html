@@ -1,0 +1,9 @@
+<div class="row">
+  <p>
+    {{ data?.query?.amount }} {{ data?.query?.from }} equals
+    {{ data?.result?.toFixed(2) }} {{ data?.query?.to }}
+  </p>
+  <div>
+    <ng-content></ng-content>
+  </div>
+</div>

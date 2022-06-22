@@ -1,0 +1,19 @@
+
+
+.routes {
+  margin-top: 0.7rem;
+  a {
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: .5em 1em;
+    color: #000;
+    &.router-link-active {
+      background: #ffe638;
+      color: #fff !important;
+    }
+  }
+}
+
+main{
+  margin-top: 70px;
+}

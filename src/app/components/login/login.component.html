@@ -1,0 +1,25 @@
+<div class="login">
+  <div class="logo">
+    <img src="./../../../assets/svg/logo.svg" alt="" />
+    Currency Exchanger
+  </div>
+  <form [formGroup]="loginForm" (submit)="login()">
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input type="email" formControlName="email" id="email" />
+      <p *ngIf="email?.dirty && email?.errors">Please enter valid Email</p>
+    </div>
+
+    <div class="form-field">
+      <label for="">Password</label>
+      <input type="password" formControlName="password" id="password" />
+      <p *ngIf="password?.dirty && password?.errors?.required">
+        Please enter Password
+      </p>
+    </div>
+
+    <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">
+      Login
+    </button>
+  </form>
+</div>

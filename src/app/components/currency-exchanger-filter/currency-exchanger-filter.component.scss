@@ -1,0 +1,37 @@
+.currency-filter{
+  box-shadow: var(--card-br);
+  background: var(--card-bg);
+}
+
+
+.row {
+  padding: 1rem;
+  div {
+    width: 150px;
+    margin-right: 1rem;
+  }
+  button{
+    height: 30px;
+    width: 100px;
+    margin-right: 1rem;
+    margin-top: 19px;
+    padding: 0;
+    img{
+      width: 29px;
+      filter: invert(1);
+    }
+  }
+  &:last-child{
+    margin-right: 0;
+  }
+}
+
+// @media screen and (max-width : 560px){
+//   .row {
+//     flex-direction: column;
+//     button, div{
+//       width: 100%;
+//       margin: 1rem 0;
+//     };
+//   }
+// }

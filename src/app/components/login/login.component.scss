@@ -1,0 +1,25 @@
+:host{
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    display: flex;
+}
+
+.login {
+    width: 400px;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border: var(--card-br);
+
+    h3{
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .logo{
+      margin: auto;
+      width: 258px;
+      line-height: 2.3rem !important;
+    }
+}
