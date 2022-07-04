@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { CurrencyExchangerService } from 'src/app/services/currency-exchanger.service';
 import { IFilterInput } from 'src/app/types/types';
@@ -11,14 +10,14 @@ import { IFilterInput } from 'src/app/types/types';
   styleUrls: ['./currency-exchanger-filter.component.scss'],
 })
 export class CurrencyExchangerFilterComponent implements OnDestroy, OnChanges {
-  @Input() options ? : IFilterInput
-  @Output() event = new EventEmitter<IFilterInput>()
+  @Input() options ? : IFilterInput;
+  @Output() event = new EventEmitter<IFilterInput>();
   filterForm: FormGroup;
   dropDownOptions : {
     from : string[]
     to : string[]
-  } = { from : [], to : []}
-  symbols : any[]
+  } = { from : [], to : []};
+  symbols : any[];
   private destroy$ = new Subject<boolean>()
   constructor(private formBuilder: FormBuilder,
     private currencyExchangerService : CurrencyExchangerService ) {
@@ -58,21 +57,19 @@ export class CurrencyExchangerFilterComponent implements OnDestroy, OnChanges {
     .pipe(
       takeUntil(this.destroy$)
     ).subscribe(s=>{
-      this.symbols = s.map(data=> data.abbreviation)
-      this.dropDownOptions.from = this.symbols
-      this.dropDownOptions.to = this.symbols
+      this.symbols = s.map(data=> data.abbreviation);
+      this.dropDownOptions.from = this.symbols;
+      this.dropDownOptions.to = this.symbols;
     })
   }
 
   emit() {
-    console.log(this.filterForm.value);
-    this.event.emit(this.filterForm.value)
+    this.event.emit(this.filterForm.value);
   }
 
   validateAmount(e: any) {
     const value = e.target.value;
     if (value && !isNaN(value)) {
-      console.log(value);
       this.amount?.setErrors(null);
     } else {
       this.amount?.setErrors({

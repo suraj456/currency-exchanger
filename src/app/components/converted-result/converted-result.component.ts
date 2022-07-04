@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IConvertCurrency, ICurrency, IFilterInput } from 'src/app/types/types';
+import { IConvertCurrency, IFilterInput } from 'src/app/types/types';
 
 @Component({
   selector: 'app-converted-result',

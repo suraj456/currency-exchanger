@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder : FormBuilder,
     private router : Router
-    ) { 
+    ) {
     this.loginForm = this.formBuilder.group({
       email : ['', [Validators.required, Validators.email]],
       password : ['', Validators.required]
@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    console.log(this.loginForm)
     sessionStorage.setItem(AUTHENTICATED, 'true')
     this.router.navigate(['converter'])
   }

@@ -21,7 +21,7 @@ export class CurrencyExchangerContainerComponent implements OnInit, OnDestroy {
       takeUntil(this.destroy$)
     )
     .subscribe((data : any) => {
-      this.currencyExchangerService.symbols$.next(data.symbols)
+      this.currencyExchangerService.symbols$.next(data.symbols);
     });
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, combineLatest, forkJoin, Subject, takeUntil } from 'rxjs';
+import { combineLatest, Subject, takeUntil } from 'rxjs';
 import { CurrencyExchangerService } from 'src/app/services/currency-exchanger.service';
 import { IConvertCurrency, ICurrency, IFilterInput } from 'src/app/types/types';
 
@@ -37,7 +37,6 @@ export class CurrencyExchangerComponent implements OnInit, OnDestroy {
     .pipe(
       takeUntil(this.destroy$)
     ).subscribe(([allCurrencies, convertedResponse, symbols])=>{
-      console.log(allCurrencies, convertedResponse, symbols, 'fork')
       this.convertedData = convertedResponse;
       for (const [key, value]  of Object.entries(allCurrencies?.rates)) {
         let obj = symbols.find(s=>
